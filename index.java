@@ -124,7 +124,7 @@ public class productos {
 
             while (line != null) {
                 if (line.startsWith("code: " + code)) {
-                    for (int i = 0; i &lt; 4; i++) {
+                    for (int i = 0; i < 4; i++) {
                         line = line.substring(line.indexOf(" ") + 1);
                         text = text + line + "\n";
                         line = br.readLine();
@@ -156,7 +156,7 @@ import javax.swing.JOptionPane;
 public class metodos {
 
     final private String dat = "productos.dat";
-    private ArrayList&lt;productos&gt; arraylist = new ArrayList&lt;productos&gt;();
+    private ArrayList<productos> arraylist = new ArrayList<productos>();
 
     public metodos() {
         try {
@@ -179,7 +179,7 @@ public class metodos {
     public void save() {
         try {
             DataOutputStream dos = new DataOutputStream(new FileOutputStream(dat));
-            for (int i = 0; i &lt; arraylist.size(); i++) {
+            for (int i = 0; i < arraylist.size(); i++) {
                 dos.writeUTF(arraylist.get(i).getCode());
                 dos.writeUTF(arraylist.get(i).getName());
                 dos.writeUTF(arraylist.get(i).getAmount());
@@ -244,7 +244,7 @@ public class metodos {
             File file = new File("productos.dat");
             FileInputStream fis = new FileInputStream(file);
             DataInputStream dis = new DataInputStream(fis);
-            while (dis.available() &gt; 0) {
+            while (dis.available() > 0) {
                 String fileCode = dis.readUTF();
                 String name = dis.readUTF();
                 String amount = dis.readUTF();
@@ -288,7 +288,7 @@ public class metodos {
     public String list() {
         String text = "";
         text = text + "Lista de productos:" + "\n" + "\n";
-        for (int i = 0; i &lt; arraylist.size(); i++) {
+        for (int i = 0; i < arraylist.size(); i++) {
             text = text + "código: " + arraylist.get(i).getCode() + "\n";
             text = text + "nombre: " + arraylist.get(i).getName() + "\n";
             text = text + "cantidad: "
@@ -303,13 +303,13 @@ public class metodos {
     public boolean modify(String code, String name, String amount,
             String description) {
         int mod = -1;
-        for (int i = 0; i &lt; arraylist.size(); i++) {
+        for (int i = 0; i < arraylist.size(); i++) {
             if (arraylist.get(i).getCode().equals(code)) {
                 mod = i;
                 break;
             }
         }
-        if (mod &gt;= 0) {
+        if (mod >= 0) {
             arraylist.get(mod).setName(name);
             arraylist.get(mod).setAmount(amount);
             arraylist.get(mod).setDescription(description);
@@ -342,13 +342,13 @@ public class metodos {
                 return "";
             }
             int del = -1;
-            for (int i = 0; i &lt; arraylist.size(); i++) {
+            for (int i = 0; i < arraylist.size(); i++) {
                 if (arraylist.get(i).getCode().equals(code)) {
                     del = i;
                     break;
                 }
             }
-            if (del &gt;= 0) {
+            if (del >= 0) {
                 arraylist.remove(del);
                 save();
             }
@@ -397,7 +397,7 @@ public class formulario extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // &lt;editor-fold defaultstate="collapsed" desc="Generated Code"&gt;//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
 
     private void initComponents() {
 
@@ -578,7 +578,7 @@ public class formulario extends javax.swing.JFrame {
         );
 
         pack();
-    }// &lt;/editor-fold&gt;//GEN-END:initComponents
+    }// </editor-fold>//GEN-END:initComponents
 
     private void txtcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodeActionPerformed
 
